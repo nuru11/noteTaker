@@ -9,16 +9,19 @@ let btn = document.getElementById("btn")
 
 let ull = document.getElementById("ull")
 
+let showDetailPara = document.querySelector(".show")
+
 ull.setAttribute("class", "ulll")
 
 
 btn.addEventListener("click", function() {
-
- /* if(inputnote !== ""){  */
-  
+    if(inputnote.value !== ""){
     let newel = document.createElement("p") 
+    let innerSpan = document.createElement("span")
     newel.setAttribute("class", "pp")
-    newel.innerText = inputnote.value;
+    innerSpan.setAttribute("class", "innerSpan")
+    newel.appendChild(innerSpan)
+    innerSpan.innerText = inputnote.value;
     
     ull.appendChild(newel)
     inputnote.value = "";
@@ -27,36 +30,38 @@ btn.addEventListener("click", function() {
     newbtn.setAttribute("class", "newbtn")
     newbtn.innerText = "show detail";
     newel.appendChild(newbtn)
-  
-    /*
-    for(let i = 1;i <= newel.length;i++) { 
-    newel.appendChild(i)
-    alert(i)
-    }
-  */
 
-/*  } else if (inputnote == "") { 
-    alert("enter note first")
-  } */
+    let deleteBtn = document.createElement("button")
+    deleteBtn.setAttribute("class", "delete-btn")
+    deleteBtn.innerText = "delete"
+    newel.appendChild(deleteBtn)
+
+    deleteBtn.addEventListener("click", function(){
+      newel.remove()
+    })
 
 
   newbtn.addEventListener("click", function() {
-    ull.setAttribute("class", "newull")
-    newbtn.setAttribute("class", "newbtnn")
-    newel.setAttribute("class", "ppp")
 
-    noinbt.setAttribute("class", "noinbt")
+    let hide = document.createElement("button")
+    hide.setAttribute("class", "hide-btn")
+    hide.textContent = "hide"
+           
+  
 
-   /* let returnbtn = document.createElement("button")
-    returnbtn.setAttribute("class", "h")  */  
+   
+    showDetailPara.textContent = innerSpan.innerText;
+    showDetailPara.appendChild(hide)
+    showDetailPara.setAttribute("class", "show")
+    
+    hide.addEventListener("click",function(){
+      showDetailPara.setAttribute("class","usShow")
+    })
 
-    returnbtn.addEventListener("click", function() {
-      ull.setAttribute("class", "newull2")
-    newbtn.setAttribute("class", "newbtn")
-    newel.setAttribute("class", "pp")
-
-    noinbt.setAttribute("class", "noinbt1")
-    }) 
+    
   })
+}else{
+  alert("write somethig first!")
+}
 
 })
