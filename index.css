@@ -91,7 +91,6 @@
 /* new feature */
 
 .show{
-  border: 1px solid blue;
   max-width:500px;
   height: fit-content;
   overflow-wrap: break-word;
