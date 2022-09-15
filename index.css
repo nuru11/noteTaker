@@ -91,8 +91,10 @@
 /* new feature */
 
 .show{
-  width:fit-content;
+  border: 1px solid blue;
+  max-width:500px;
   height: fit-content;
+  overflow-wrap: break-word;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
